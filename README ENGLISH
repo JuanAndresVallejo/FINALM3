@@ -1,0 +1,113 @@
+READ ME
+
+USER MANUAL
+
+By: Juan Andres Aristizabal Vallejo
+ID: 1017265987
+Email: juanokiry@hotmail.com
+Clan: Van Rossum
+
+--------------------------------------------------------------------
+
+IMPORTANT:
+- Before running the page, open the server from the console with this command, which is the database path:
+
+cd /home/coders/Desktop/Events/Project-main/data (Enter)
+
+json-server db.json (Enter)
+
+------------------------------------------------------------------
+
+Once we run the page, open the live server from the visual.
+
+-------------------------------------------------------------------
+
+INDEX.HTML
+
+On this page, we will find two screens:
+
+1- Log in: Enter our email and password (previously saved in our database).
+
+- Here we can log in as a normal user (Type U) or as an administrator (Type A) for more features.
+
+2- Register: Here we must enter our name, email, and password. The email cannot previously exist in the database. (Only registration as a normal user is allowed.)
+
+- Once we register, we will be directed to Log in to start the session.
+
+AUTH.JS
+
+Once we log in, the information goes through our guardian (in this case, AUTH), where they validate that the information provided is the same as the information we have in the database.
+
+If the information is incorrect, the user is sent back to the login screen (INDEX).
+
+If the information is correct, the user will have access to all content on the page during the session.
+
+EVENTS.JS
+
+- As a normal user (TYPE U):
+
+The user will see a nav bar with events (the page they're currently viewing), cart, the user's name, log out, and the dark mode button.
+
+Then they will find a search bar to filter the events. If you leave it empty, all events will appear.
+
+It contains the events, the price, the ticket price, and the option to add it to the cart.
+
+If you add the quantity and click "add to cart," it will be added to your cart and the amount will be deducted from the inventory.
+
+- As an admin (TYPE A)
+
+You have the same view as a normal user, except that you can't add events to the cart, but you can edit them (function in progress) and delete them.
+
+CART.JS
+
+- As a normal user (TYPE U)
+
+Here you will find the tickets you "reserved" to finally purchase. By clicking "Buy," they disappear from the cart and the history in your profile is updated.
+
+PROFILE.JS
+
+- As a normal user (TYPE U)
+
+Here, the user can edit their information such as email and password. They can also find the history of their purchases, including details, date, and time.
+
+- As an administrator (TYPE A)
+
+The administrator can see all users (including other administrators) and can edit and delete them, as well as view their purchase history.
+
+LOG OUT BUTTON (For any user)
+
+This allows us to log out, saving the history and settings the user has made on the page while their session is active.
+
+THEME.JS - DARK MODE / LIGHT MODE BUTTON (For any user)
+
+This allows any user to change the page's "light" for greater visual comfort.
+
+--------------------------------------------------------------------------------
+
+Other files:
+
+ROUTER.JS
+
+It allows us to link all routes and make the code more readable with some global features.
+
+ADMIN.JS
+
+This file detects that the user is an administrator (TYPE A) to unlock features that other users cannot access.
+
+DB.JSON
+
+This is our database, which already contains previous information but is updated as new users join.
+
+PAGE.HTML
+
+This is our "landing page" once the gatekeeper has passed, and it protects the content of the other sections.
+
+STYLE.CSS
+
+Contains the page's visuals.
+
+NOTES.TXT
+
+If no events appear in the events section, enter this prompt in the browser console:
+
+localStorage.setItem("db", JSON.stringify({ users: [], products: [ { id: 1, name: "LolaPalooza", price: 2000, stock: 15 }, { id: 2, name: "Estereo Picnic", price: 1800, stock: 10 }, { id: 3, name: "AltaVoz", price: 2200, stock: 12 }, { id: 4, name: "TomorrowLand", price: 2200, stock: 12 } ], purchases: [], stockHistory: [] }));

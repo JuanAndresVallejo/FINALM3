@@ -1,0 +1,115 @@
+READ ME
+
+MANUAL DE USO
+
+Por: Juan Andres Aristizabal Vallejo
+Cedula: 1017265987
+Correo: juanokiry@hotmail.com
+Clan: Van Rossum
+
+-------------------------------------------------------------------
+
+IMPORTANTE:
+- Antes de correr la pagina, desde la consola abrir el servidor con este comando que es la ruta de la base de datos:
+
+cd /home/coders/Escritorio/Eventos/Proyecto-main/data (Enter)
+
+json-server db.json (Enter)
+
+-------------------------------------------------------------------
+
+Una vez corramos la pagina, abrir el live server desde el visual.
+
+-------------------------------------------------------------------
+
+
+INDEX.HTML
+
+En esta pagina encontraremos dos pantallas:
+
+1- Log in: Ingresamos nuestro correo y contraseña (Previamente guardada en nuestra base de datos).
+
+    - Aca podremos ingresar como usuario normal (Tipo U) o como administrador (Tipo A) para mas funcionalidades
+
+2- Register: Aca deberemos de poner nuestro nombre, correo y contraseña. El correo no puede existir previamente en la base de datos. (Solo se permite registrar como usuario normal)
+
+    - Una vez nos registremos, nos dirigira a Log in para iniciar la sesion.
+    
+AUTH.JS
+
+Una vez iniciemos sesion, la informacion pasa por nuestro guardian (en este caso, AUTH) donde se validan que la informacion brindada es igual a la informacion que tenemos en la base de datos.
+
+Si la informacion no es correcta, nuevamente envia al usuario a la pantalla de login (INDEX)
+
+Si la informacion es correcta, el usuario tendra acceso a todo el contenido de la pagina durante la sesion.
+
+EVENTS.JS
+
+    - Como usuario normal (TIPO U):
+
+El usuario tendra un nav-bar con eventos (seria la pagina que esta viendo), cart, el nombre del usuario, log out y el boton de modo oscuro.
+
+Despues encontrara un buscador para filtrar los eventos. En caso de dejarlo vacio, apareceran todos.
+
+Tiene los eventos, el precio, cuanto vale el ticket y añadirlo al carrito. 
+
+Si añade la cantidad y da click en "add to cart", se añade a su carrito y se descuenta la cantidad del stock.
+
+    - Como admin (TIPO A)
+
+Tiene la misma visualizacion del usuario normal, con la diferencia de que en los eventos no puede añadirlos al carrito sino que los puede editar (Funcion en proceso) y borrarlos.
+
+CART.JS
+
+    - Como usuario normal (TIPO U)
+    
+Aca va a encontrar los ticketes que "reservo" para finalmente comprarlos. Al darle click en "Buy" se desaparecen del carro y se actualiza el historial en su perfil. 
+
+PROFILE.JS
+
+    - Como usuario normal (TIPO U)
+    
+Aca el usuario podra editar su informacion tal como correo o contraseña. Ademas podra encontrar el historial de las compras que realizo con detalles, fecha y hora.
+
+    - Como administrador (TIPO A)
+
+El administrador podra ver todos los usuarios (incluyendo otros administradores) y podra editarlos, eliminarlos y ver el historial de compras que han realizado.
+
+BOTON LOG OUT (Para cualquier usuario)
+
+Este nos permite cerrar la sesion, guardando el historial y las configuraciones que el usuario haya hecho dentro de la pagina con su sesion activa
+
+THEME.JS - BOTON DARK MODE / LIGHT MODE (Para cualquier usuario)
+
+Este nos permite que cualquier usuario pueda cambiar la "luz" de la pagina para mas confort visual
+
+-------------------------------------------------------------------
+
+Otros archivos:
+
+ROUTER.JS 
+
+Nos permite que enlacemos todas las rutas y sea mas legible el codigo con algunas funcionalidades globales
+
+ADMIN.JS
+
+Es el archivo el cual detecta que el usuario es un administrador (TIPO A) para desbloquearle las funcionalidades que otros usuarios no pueden tener
+
+DB.JSON
+
+Es nuestra base de datos la cual ya contiene informacion previa pero se actualiza a medida que ingresamos nuevos usuarios.
+
+PAGE.HTML
+
+Es nuestra "landing page" una vez se haya pasado el guardian y la que protege el contenido de las otras secciones.
+
+STYLE.CSS
+
+Contiene lo visual de la pagina
+
+NOTAS.TXT
+
+Si en el apartado de events, no aparece ningun evento, poner en la consola del navegar este prompt:
+
+localStorage.setItem("db", JSON.stringify({ users: [], products: [ { id: 1, name: "LolaPalooza", price: 2000, stock: 15 }, { id: 2, name: "Estereo Picnic", price: 1800, stock: 10 }, { id: 3, name: "AltaVoz", price: 2200, stock: 12 }, { id: 4, name: "TomorrowLand", price: 2200, stock: 12 } ], purchases: [], stockHistory: [] }));
+
