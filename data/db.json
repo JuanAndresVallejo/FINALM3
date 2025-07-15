@@ -1,0 +1,76 @@
+{
+"users": [
+    {
+    "id": 1,
+    "name": "Juan Admin",
+    "email": "admin1@hotmail.com",
+    "password": "admin123",
+    "role": "A"
+    },
+    {
+    "id": 3,
+    "name": "Luis",
+    "email": "u1@hotmail.com",
+    "password": "user123",
+    "role": "U"
+    },
+    {
+    "id": 4,
+    "name": "Ana",
+    "email": "u2@hotmail.com",
+    "password": "user123",
+    "role": "U"
+    },
+    {
+    "id": 5,
+    "name": "Pedro",
+    "email": "u3@hotmail.com",
+    "password": "user123",
+    "role": "U"
+    },
+    {
+    "id": 6,
+    "name": "Valentina",
+    "email": "u4@hotmail.com",
+    "password": "user123",
+    "role": "U"
+    },
+    {
+    "id": 7,
+    "name": "Juan Andres",
+    "email": "u5@hotmail.com",
+    "password": "user123",
+    "role": "U"
+    }
+],
+
+"products": [
+    {
+    "id": 101,
+    "name": "LolaPalooza",
+    "price": 2500,
+    "stock": 30
+    },
+    {
+    "id": 102,
+    "name": "Estereo Picnic",
+    "price": 1800,
+    "stock": 20
+    },
+    {
+    "id": 103,
+    "name": "AltaVoz",
+    "price": 3000,
+    "stock": 25
+    },
+    {
+    "id": 104,
+    "name": "TomorrowLand",
+    "price": 2200,
+    "stock": 15
+    }
+],
+"purchases": [],
+"stockHistory": []
+}
+
